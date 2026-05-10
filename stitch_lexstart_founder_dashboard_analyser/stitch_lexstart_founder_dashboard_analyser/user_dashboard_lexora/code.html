@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "background": "#121414",
+                "error-container": "#93000a",
+                "on-secondary-container": "#cfe2ff",
+                "tertiary-container": "#ffdad4",
+                "primary-fixed-dim": "#c6c6c7",
+                "on-surface": "#e3e2e2",
+                "on-surface-variant": "#c4c7c8",
+                "outline-variant": "#444748",
+                "tertiary": "#ffffff",
+                "secondary-fixed-dim": "#a1c9ff",
+                "on-secondary-fixed": "#001c38",
+                "secondary-fixed": "#d2e4ff",
+                "on-primary": "#2f3131",
+                "on-tertiary-fixed": "#410000",
+                "on-tertiary-container": "#c90f06",
+                "inverse-on-surface": "#2f3131",
+                "tertiary-fixed": "#ffdad4",
+                "on-tertiary": "#680100",
+                "surface-variant": "#343535",
+                "surface-dim": "#121414",
+                "on-primary-container": "#636565",
+                "secondary": "#a1c9ff",
+                "surface-container": "#1e2020",
+                "outline": "#8e9192",
+                "on-primary-fixed-variant": "#454747",
+                "surface-bright": "#38393a",
+                "surface-container-lowest": "#0d0e0f",
+                "surface-container-low": "#1a1c1c",
+                "on-error-container": "#ffdad6",
+                "inverse-surface": "#e3e2e2",
+                "on-secondary-fixed-variant": "#004880",
+                "primary-fixed": "#e2e2e2",
+                "tertiary-fixed-dim": "#ffb4a8",
+                "primary-container": "#e2e2e2",
+                "surface-container-high": "#292a2a",
+                "error": "#ffb4ab",
+                "secondary-container": "#0065b0",
+                "on-tertiary-fixed-variant": "#930100",
+                "on-secondary": "#00325a",
+                "inverse-primary": "#5d5f5f",
+                "on-primary-fixed": "#1a1c1c",
+                "on-background": "#e3e2e2",
+                "surface": "#121414",
+                "primary": "#ffffff",
+                "surface-tint": "#c6c6c7",
+                "surface-container-highest": "#343535",
+                "on-error": "#690005"
+            },
+            "borderRadius": {
+                "DEFAULT": "0px",
+                "lg": "0px",
+                "xl": "0px",
+                "full": "9999px"
+            },
+            "spacing": {
+                "margin-desktop": "32px",
+                "gutter": "16px",
+                "unit": "4px",
+                "divider-weight": "4px",
+                "margin-mobile": "16px",
+                "max-width": "1280px"
+            },
+            "fontFamily": {
+                "body-md": ["Inter"],
+                "headline-md": ["Inter"],
+                "body-lg": ["Inter"],
+                "display-lg-mobile": ["Inter"],
+                "label-caps": ["Inter"],
+                "headline-sm": ["Inter"],
+                "button-text": ["Inter"],
+                "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "300"}],
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "300"}],
+                "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "label-caps": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                "headline-sm": ["18px", {"lineHeight": "1.4", "fontWeight": "700"}],
+                "button-text": ["14px", {"lineHeight": "1", "letterSpacing": "1.5px", "fontWeight": "700"}],
+                "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .tricolor-stripe {
+            height: 4px;
+            background: linear-gradient(90deg, #0066b1 0%, #0066b1 33.33%, #1c69d4 33.33%, #1c69d4 66.66%, #e22718 66.66%, #e22718 100%);
+        }
+        .hairline { border: 1px solid #3c3c3c; }
+        .hairline-b { border-bottom: 1px solid #3c3c3c; }
+        .hairline-l { border-left: 1px solid #3c3c3c; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary selection:text-background">
+<!-- Top Navigation -->
+<nav class="bg-background dark:bg-background border-b border-outline-variant fixed top-0 w-full z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop h-12 max-w-max-width mx-auto">
+<div class="text-headline-md font-headline-md font-bold uppercase tracking-tighter text-primary">Lexora</div>
+<div class="flex items-center gap-8">
+<a class="text-primary border-b-2 border-primary pb-1 font-label-caps text-label-caps uppercase" href="#">Documents</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-caps text-label-caps uppercase" href="#">Analysis</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-caps text-label-caps uppercase" href="#">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-caps text-label-caps uppercase" href="#">Terms</a>
+<div class="flex items-center gap-6 border-l border-outline-variant pl-8">
+<button class="font-button-text text-button-text uppercase text-on-surface-variant hover:text-primary transition-colors">SETTINGS</button>
+<div class="w-10 h-10 bg-surface-container-lowest border border-primary flex items-center justify-center font-bold text-primary">
+                        RS
+                    </div>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-max-width mx-auto px-margin-desktop pt-24 pb-32">
+<!-- Dashboard Header -->
+<header class="pt-24 mb-16">
+<h1 class="text-[56px] font-bold text-primary leading-tight uppercase">GOOD MORNING, RAHUL.</h1>
+<p class="text-[18px] font-light text-on-surface-variant mt-4">
+                You have 3 documents this month. <span class="text-primary font-normal">Starter plan</span> · 7 documents remaining.
+            </p>
+</header>
+<!-- Stat Cells -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-0 mb-16 hairline">
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-center border-r border-[#3c3c3c]">
+<span class="text-[32px] font-bold text-primary leading-none">8</span>
+<span class="text-label-caps font-label-caps text-[#7e7e7e] mt-2 uppercase">TOTAL DOCUMENTS</span>
+</div>
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-center border-r border-[#3c3c3c]">
+<span class="text-[32px] font-bold text-primary leading-none">2</span>
+<span class="text-label-caps font-label-caps text-[#7e7e7e] mt-2 uppercase">HIGH RISK FLAGS</span>
+</div>
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-center border-r border-[#3c3c3c]">
+<span class="text-[32px] font-bold text-primary leading-none">SEED STAGE</span>
+<span class="text-label-caps font-label-caps text-[#7e7e7e] mt-2 uppercase">FUNDING ROUND</span>
+</div>
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-center">
+<span class="text-[32px] font-bold text-primary leading-none">MAHARASHTRA</span>
+<span class="text-label-caps font-label-caps text-[#7e7e7e] mt-2 uppercase">JURISDICTION</span>
+</div>
+</section>
+<!-- Quick Action Bar -->
+<section class="w-full bg-surface-container-lowest p-12 mb-24 hairline">
+<div class="flex flex-wrap gap-4 items-center justify-between">
+<button class="h-12 px-6 border border-primary text-primary font-button-text text-button-text uppercase hover:bg-primary hover:text-background transition-all group flex items-center">
+                    NEW NDA <span class="ml-4 transition-transform group-hover:translate-x-1">→</span>
+</button>
+<button class="h-12 px-6 border border-primary text-primary font-button-text text-button-text uppercase hover:bg-primary hover:text-background transition-all group flex items-center">
+                    NEW FOUNDER AGREEMENT <span class="ml-4 transition-transform group-hover:translate-x-1">→</span>
+</button>
+<button class="h-12 px-6 border border-primary text-primary font-button-text text-button-text uppercase hover:bg-primary hover:text-background transition-all group flex items-center">
+                    NEW ESOP <span class="ml-4 transition-transform group-hover:translate-x-1">→</span>
+</button>
+<button class="h-12 px-6 border border-primary text-primary font-button-text text-button-text uppercase hover:bg-primary hover:text-background transition-all group flex items-center">
+                    NEW VENDOR CONTRACT <span class="ml-4 transition-transform group-hover:translate-x-1">→</span>
+</button>
+<button class="h-12 px-6 border border-primary text-primary font-button-text text-button-text uppercase hover:bg-primary hover:text-background transition-all group flex items-center">
+                    ANALYSE A CONTRACT <span class="ml-4 transition-transform group-hover:translate-x-1">→</span>
+</button>
+</div>
+</section>
+<!-- Document History Table -->
+<section class="mb-24">
+<div class="flex flex-col mb-8">
+<h2 class="text-headline-md font-headline-md text-primary mb-2 uppercase">RECENT DOCUMENTS</h2>
+<div class="tricolor-stripe w-full"></div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full border-collapse">
+<thead>
+<tr class="bg-surface-container-high hairline">
+<th class="px-6 py-4 text-left font-label-caps text-label-caps text-[#7e7e7e] uppercase border-r border-[#3c3c3c]">TYPE</th>
+<th class="px-6 py-4 text-left font-label-caps text-label-caps text-[#7e7e7e] uppercase border-r border-[#3c3c3c]">PARTIES</th>
+<th class="px-6 py-4 text-left font-label-caps text-label-caps text-[#7e7e7e] uppercase border-r border-[#3c3c3c]">DATE</th>
+<th class="px-6 py-4 text-left font-label-caps text-label-caps text-[#7e7e7e] uppercase border-r border-[#3c3c3c]">RISK</th>
+<th class="px-6 py-4 text-left font-label-caps text-label-caps text-[#7e7e7e] uppercase border-r border-[#3c3c3c]">STATUS</th>
+<th class="px-6 py-4 text-left font-label-caps text-label-caps text-[#7e7e7e] uppercase">ACTIONS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="hairline h-16 hover:bg-surface-container-low transition-colors">
+<td class="px-6 border-r border-[#3c3c3c] font-bold text-primary">NDA_V4_FINAL.PDF</td>
+<td class="px-6 border-r border-[#3c3c3c] text-on-surface-variant">Reliance Jio Infocomm Ltd.</td>
+<td class="px-6 border-r border-[#3c3c3c] text-on-surface-variant text-[12px]">OCT 24, 2024</td>
+<td class="px-6 border-r border-[#3c3c3c]">
+<span class="px-2 py-1 border border-green-500 text-green-500 text-[10px] font-bold">LOW</span>
+</td>
+<td class="px-6 border-r border-[#3c3c3c]">
+<span class="text-[10px] font-bold text-primary uppercase">EXECUTED</span>
+</td>
+<td class="px-6">
+<button class="text-[12px] font-bold underline hover:text-primary uppercase">Download</button>
+</td>
+</tr>
+<tr class="hairline h-16 hover:bg-surface-container-low transition-colors">
+<td class="px-6 border-r border-[#3c3c3c] font-bold text-primary">VENDOR_AGR_AMAZON.DOCX</td>
+<td class="px-6 border-r border-[#3c3c3c] text-on-surface-variant">Amazon Web Services India</td>
+<td class="px-6 border-r border-[#3c3c3c] text-on-surface-variant text-[12px]">OCT 21, 2024</td>
+<td class="px-6 border-r border-[#3c3c3c]">
+<span class="px-2 py-1 border border-red-500 text-red-500 text-[10px] font-bold">HIGH</span>
+</td>
+<td class="px-6 border-r border-[#3c3c3c]">
+<span class="text-[10px] font-bold text-primary uppercase">REVIEW PENDING</span>
+</td>
+<td class="px-6">
+<button class="text-[12px] font-bold underline hover:text-primary uppercase">Analyze</button>
+</td>
+</tr>
+<tr class="hairline h-16 hover:bg-surface-container-low transition-colors">
+<td class="px-6 border-r border-[#3c3c3c] font-bold text-primary">ESOP_SCHEME_2024.PDF</td>
+<td class="px-6 border-r border-[#3c3c3c] text-on-surface-variant">Lexora Internal</td>
+<td class="px-6 border-r border-[#3c3c3c] text-on-surface-variant text-[12px]">OCT 18, 2024</td>
+<td class="px-6 border-r border-[#3c3c3c]">
+<span class="px-2 py-1 border border-yellow-500 text-yellow-500 text-[10px] font-bold">MED</span>
+</td>
+<td class="px-6 border-r border-[#3c3c3c]">
+<span class="text-[10px] font-bold text-primary uppercase">DRAFT</span>
+</td>
+<td class="px-6">
+<button class="text-[12px] font-bold underline hover:text-primary uppercase">Edit</button>
+</td>
+</tr>
+<tr class="hairline h-16 hover:bg-surface-container-low transition-colors">
+<td class="px-6 border-r border-[#3c3c3c] font-bold text-primary">RENTAL_AGR_BLR.PDF</td>
+<td class="px-6 border-r border-[#3c3c3c] text-on-surface-variant">Embassy TechVillage</td>
+<td class="px-6 border-r border-[#3c3c3c] text-on-surface-variant text-[12px]">OCT 15, 2024</td>
+<td class="px-6 border-r border-[#3c3c3c]">
+<span class="px-2 py-1 border border-green-500 text-green-500 text-[10px] font-bold">LOW</span>
+</td>
+<td class="px-6 border-r border-[#3c3c3c]">
+<span class="text-[10px] font-bold text-primary uppercase">STAMPING</span>
+</td>
+<td class="px-6">
+<button class="text-[12px] font-bold underline hover:text-primary uppercase">Track</button>
+</td>
+</tr>
+<tr class="hairline h-16 hover:bg-surface-container-low transition-colors">
+<td class="px-6 border-r border-[#3c3c3c] font-bold text-primary">FOUNDER_VESTING.DOCX</td>
+<td class="px-6 border-r border-[#3c3c3c] text-on-surface-variant">Rahul S. &amp; Co-Founders</td>
+<td class="px-6 border-r border-[#3c3c3c] text-on-surface-variant text-[12px]">OCT 12, 2024</td>
+<td class="px-6 border-r border-[#3c3c3c]">
+<span class="px-2 py-1 border border-yellow-500 text-yellow-500 text-[10px] font-bold">MED</span>
+</td>
+<td class="px-6 border-r border-[#3c3c3c]">
+<span class="text-[10px] font-bold text-primary uppercase">ARCHIVED</span>
+</td>
+<td class="px-6">
+<button class="text-[12px] font-bold underline hover:text-primary uppercase">Restore</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Risk Summary & Actions -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Left: Risk Overview -->
+<div>
+<h3 class="text-[40px] font-bold text-primary mb-8 uppercase leading-tight">YOUR RISK OVERVIEW</h3>
+<div class="space-y-6">
+<div class="bg-surface-container p-6 hairline border-l-4 border-l-[#e22718]">
+<h4 class="font-bold text-primary uppercase mb-2">CRITICAL LIABILITY CLAUSE</h4>
+<p class="text-body-md text-on-surface-variant">The Vendor agreement with AWS India contains an uncapped liability clause. This exceeds standard Seed-stage risk tolerance.</p>
+</div>
+<div class="bg-surface-container p-6 hairline border-l-4 border-l-[#1c69d4]">
+<h4 class="font-bold text-primary uppercase mb-2">INTELLECTUAL PROPERTY GAP</h4>
+<p class="text-body-md text-on-surface-variant">Founder agreement vesting schedule lacks specific 'Work for Hire' assignment clauses for Maharashtra jurisdiction.</p>
+</div>
+</div>
+</div>
+<!-- Right: Pending Actions -->
+<div class="bg-surface-container-lowest p-8 hairline">
+<h3 class="text-headline-sm font-headline-sm text-primary mb-8 uppercase">PENDING ACTIONS</h3>
+<div class="space-y-4">
+<label class="flex items-center gap-4 p-4 border border-[#3c3c3c] hover:border-primary transition-colors cursor-pointer group">
+<input class="w-5 h-5 rounded-none border-[#3c3c3c] bg-transparent text-primary focus:ring-0" type="checkbox"/>
+<span class="text-body-md text-on-surface group-hover:text-primary uppercase">Countersign Reliance NDA</span>
+</label>
+<label class="flex items-center gap-4 p-4 border border-[#3c3c3c] hover:border-primary transition-colors cursor-pointer group">
+<input class="w-5 h-5 rounded-none border-[#3c3c3c] bg-transparent text-primary focus:ring-0" type="checkbox"/>
+<span class="text-body-md text-on-surface group-hover:text-primary uppercase">Upload Stamp Duty Receipt - Embassy</span>
+</label>
+<label class="flex items-center gap-4 p-4 border border-[#3c3c3c] hover:border-primary transition-colors cursor-pointer group">
+<input class="w-5 h-5 rounded-none border-[#3c3c3c] bg-transparent text-primary focus:ring-0" type="checkbox"/>
+<span class="text-body-md text-on-surface group-hover:text-primary uppercase">Confirm ESOP Grant Letters List</span>
+</label>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t-divider-weight border-primary bg-background w-full">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-desktop py-8 max-w-max-width mx-auto gap-gutter">
+<div class="flex flex-col gap-2">
+<div class="text-headline-sm font-headline-sm font-bold text-primary">Lexora</div>
+<p class="text-on-surface-variant text-body-md">© 2024 Lexora. Indian Legal-Tech.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-primary underline text-label-caps font-label-caps uppercase" href="#">Mission</a>
+<a class="text-on-surface-variant hover:text-primary underline text-label-caps font-label-caps uppercase" href="#">Coverage</a>
+<a class="text-on-surface-variant hover:text-primary underline text-label-caps font-label-caps uppercase" href="#">Terms of Use</a>
+<a class="text-on-surface-variant hover:text-primary underline text-label-caps font-label-caps uppercase" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "background": "#121414",
+                "error-container": "#93000a",
+                "on-secondary-container": "#cfe2ff",
+                "tertiary-container": "#ffdad4",
+                "primary-fixed-dim": "#c6c6c7",
+                "on-surface": "#e3e2e2",
+                "on-surface-variant": "#c4c7c8",
+                "outline-variant": "#444748",
+                "tertiary": "#ffffff",
+                "secondary-fixed-dim": "#a1c9ff",
+                "on-secondary-fixed": "#001c38",
+                "secondary-fixed": "#d2e4ff",
+                "on-primary": "#2f3131",
+                "on-tertiary-fixed": "#410000",
+                "on-tertiary-container": "#c90f06",
+                "inverse-on-surface": "#2f3131",
+                "tertiary-fixed": "#ffdad4",
+                "on-tertiary": "#680100",
+                "surface-variant": "#343535",
+                "surface-dim": "#121414",
+                "on-primary-container": "#636565",
+                "secondary": "#a1c9ff",
+                "surface-container": "#1e2020",
+                "outline": "#8e9192",
+                "on-primary-fixed-variant": "#454747",
+                "surface-bright": "#38393a",
+                "surface-container-lowest": "#0d0e0f",
+                "surface-container-low": "#1a1c1c",
+                "on-error-container": "#ffdad6",
+                "inverse-surface": "#e3e2e2",
+                "on-secondary-fixed-variant": "#004880",
+                "primary-fixed": "#e2e2e2",
+                "tertiary-fixed-dim": "#ffb4a8",
+                "primary-container": "#e2e2e2",
+                "surface-container-high": "#292a2a",
+                "error": "#ffb4ab",
+                "secondary-container": "#0065b0",
+                "on-tertiary-fixed-variant": "#930100",
+                "on-secondary": "#00325a",
+                "inverse-primary": "#5d5f5f",
+                "on-primary-fixed": "#1a1c1c",
+                "on-background": "#e3e2e2",
+                "surface": "#121414",
+                "primary": "#ffffff",
+                "surface-tint": "#c6c6c7",
+                "surface-container-highest": "#343535",
+                "on-error": "#690005"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "margin-desktop": "32px",
+                "gutter": "16px",
+                "unit": "4px",
+                "divider-weight": "4px",
+                "margin-mobile": "16px",
+                "max-width": "1280px"
+            },
+            "fontFamily": {
+                "body-md": ["Inter"],
+                "headline-md": ["Inter"],
+                "body-lg": ["Inter"],
+                "display-lg-mobile": ["Inter"],
+                "label-caps": ["Inter"],
+                "headline-sm": ["Inter"],
+                "button-text": ["Inter"],
+                "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "300"}],
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "300"}],
+                "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "label-caps": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                "headline-sm": ["18px", {"lineHeight": "1.4", "fontWeight": "700"}],
+                "button-text": ["14px", {"lineHeight": "1", "letterSpacing": "1.5px", "fontWeight": "700"}],
+                "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { background-color: #121414; color: #e3e2e2; font-family: 'Inter', sans-serif; }
+        .tricolor-stripe {
+            height: 4px;
+            width: 100%;
+            background: linear-gradient(90deg, #0066b1 0%, #0066b1 33.33%, #1c69d4 33.33%, #1c69d4 66.66%, #e22718 66.66%, #e22718 100%);
+        }
+        .hairline { border-bottom: 1px solid #3c3c3c; }
+        .legal-body { color: #bbbbbb; line-height: 1.7; }
+    </style>
+</head>
+<body class="dark bg-background text-on-surface">
+<!-- TopAppBar -->
+<nav class="fixed top-0 z-50 w-full bg-background border-b border-outline-variant">
+<div class="flex justify-between items-center w-full px-margin-desktop h-12 max-w-max-width mx-auto">
+<div class="text-headline-md font-headline-md font-bold uppercase tracking-tighter text-primary">Lexora</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors duration-200" href="#">Documents</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors duration-200" href="#">Analysis</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors duration-200" href="#">About</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-label-caps text-label-caps" href="#">Terms</a>
+<div class="flex items-center gap-4 ml-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">settings</span>
+<div class="w-8 h-8 bg-surface-container-highest rounded-full overflow-hidden border border-outline-variant">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCamEH2ylS9LgEkFo_BM-e29RUco50zSjoim8ZHDoCuLpGsumfZILaOApe5o8NfgRhQbHRxnBYTXogtM3_I-RQvq-eT-tQAGSrda-lNdqJeOet-zEUB9NH0hYIENqCNwM_1KoMP58eW7_eydaHzwovCypM9LtfvzMYF85PS9-EwOgHBEyZYZ5jnj1D7ID7TJIIHuEbckU8nHeBAgGzHm5oGUGJ7kRgCjUd8Xlf64m8xK7sl9neE3vkORaVXlI23jiQ4MOuw2Hxhlg"/>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<!-- Page Header -->
+<header class="pt-24 px-margin-desktop max-w-max-width mx-auto">
+<div class="max-w-[720px] mx-auto pt-24 text-left">
+<h1 class="text-[56px] font-extrabold leading-tight tracking-tighter uppercase text-primary mb-8">
+                LEGAL DISCLAIMER AND TERMS OF USE.
+            </h1>
+<div class="tricolor-stripe mb-6"></div>
+<p class="font-label-caps text-label-caps text-on-surface-variant tracking-widest">
+                LAST UPDATED: JANUARY 2025
+            </p>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="px-margin-desktop py-16 max-w-max-width mx-auto">
+<div class="max-w-[720px] mx-auto space-y-12">
+<!-- Section 1 -->
+<section class="pb-12 hairline">
+<h2 class="text-headline-md font-headline-md uppercase text-primary mb-4">NOT LEGAL ADVICE</h2>
+<div class="legal-body font-body-lg text-body-lg">The materials available on this website, including all legal document templates, automated analysis reports, and informational articles, are for general informational purposes only. Lexora is a technology platform and does not provide legal, financial, or tax advice. The information provided is not intended to be a substitute for professional legal advice from a qualified advocate licensed in the relevant jurisdiction.</div>
+</section>
+<!-- Section 2 -->
+<section class="pb-12 hairline">
+<h2 class="text-headline-md font-headline-md uppercase text-primary mb-4">NO ATTORNEY-CLIENT RELATIONSHIP</h2>
+<div class="legal-body font-body-lg text-body-lg">Use of Lexora, including the transmission of information through our platform or the generation of documents, does not create an attorney-client relationship between you and Lexora. No communication between you and Lexora or its employees via our website, email, or chatbot is protected by attorney-client privilege or work product doctrine.</div>
+</section>
+<!-- Section 3 -->
+<section class="pb-12 hairline">
+<h2 class="text-headline-md font-headline-md uppercase text-primary mb-4">ACCURACY</h2>
+<div class="legal-body font-body-lg text-body-lg">While we strive to keep our platform updated with the latest Indian legal standards and regulations, laws change frequently. Lexora cannot guarantee that all information or templates on the site are completely current, accurate, or applicable to your specific legal situation. Users are encouraged to verify the validity of documents with legal counsel.</div>
+</section>
+<!-- Section 4 -->
+<section class="pb-12 hairline">
+<h2 class="text-headline-md font-headline-md uppercase text-primary mb-4">USER RESPONSIBILITIES</h2>
+<div class="legal-body font-body-lg text-body-lg">You are solely responsible for the information you input into our document generators. Lexora does not review your answers for legal sufficiency, draw legal conclusions, provide opinions about your selection of forms, or apply the law to the facts of your situation. You are responsible for ensuring your use of our services complies with local laws.</div>
+</section>
+<!-- Section 5 -->
+<section class="pb-12 hairline">
+<h2 class="text-headline-md font-headline-md uppercase text-primary mb-4">INTELLECTUAL PROPERTY</h2>
+<div class="legal-body font-body-lg text-body-lg">All software, design, text, graphics, and the selection and arrangement thereof are the proprietary property of Lexora. Unauthorized use of these materials—including reproduction, modification, distribution, or republication—without the prior written permission of Lexora is strictly prohibited.</div>
+</section>
+<!-- Section 6 -->
+<section class="pb-12 hairline">
+<h2 class="text-headline-md font-headline-md uppercase text-primary mb-4">DATA PRIVACY</h2>
+<div class="legal-body font-body-lg text-body-lg">Your privacy is paramount. Lexora adheres to high standards of data protection. Information collected during the document generation process is used strictly for service delivery. For detailed information on how we handle your data, please refer to our Privacy Policy.</div>
+</section>
+<!-- Section 7 -->
+<section class="pb-12 hairline">
+<h2 class="text-headline-md font-headline-md uppercase text-primary mb-4">GOVERNING LAW</h2>
+<div class="legal-body font-body-lg text-body-lg">
+                    These terms and your use of the website are governed by the laws of India. Any legal action or proceeding relating to your access to, or use of, the website shall be instituted in the competent courts located in Bangalore, Karnataka.
+                </div>
+</section>
+<!-- Section 8 -->
+<section class="pb-12 hairline">
+<h2 class="text-headline-md font-headline-md uppercase text-primary mb-4">CHANGES TO TERMS</h2>
+<div class="legal-body font-body-lg text-body-lg">Lexora reserves the right to change these Terms of Use at any time without notice. Your continued use of the site after any changes constitutes your acceptance of the new Terms of Use. We recommend reviewing this page periodically for updates.</div>
+</section>
+<!-- Section 9 -->
+<section class="pb-12">
+<h2 class="text-headline-md font-headline-md uppercase text-primary mb-4">CONTACT</h2>
+<div class="legal-body font-body-lg text-body-lg">If you have any questions regarding this disclaimer or any other terms, please contact us at compliance@lexora.in or through our support portal.</div>
+</section>
+</div>
+</main>
+<!-- Bottom Band -->
+<section class="bg-surface-container-low py-16 px-margin-desktop">
+<div class="max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<h2 class="text-[32px] font-bold uppercase tracking-tighter text-primary">QUESTIONS ABOUT YOUR DOCUMENT?</h2>
+<div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+<button class="h-12 px-8 bg-primary text-background font-button-text text-button-text uppercase flex items-center justify-center gap-2 hover:bg-on-surface transition-colors">
+                    SPEAK TO A LAWYER 
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<button class="h-12 px-8 border border-primary text-primary font-button-text text-button-text uppercase flex items-center justify-center gap-2 hover:bg-surface-container-highest transition-colors">CONTACT LEXORA <span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t-divider-weight border-primary">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-desktop py-8 max-w-max-width mx-auto gap-gutter">
+<div class="flex flex-col gap-2 items-center md:items-start">
+<div class="text-headline-sm font-headline-sm font-bold text-primary">Lexora</div>
+<p class="text-on-surface-variant font-body-md text-body-md">© 2024 Lexora. Indian Legal-Tech.</p>
+</div>
+<div class="flex gap-6">
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary underline" href="#">Mission</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary underline" href="#">Coverage</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary underline" href="#">Terms of Use</a>
+<a class="text-primary font-label-caps text-label-caps underline" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+</body></html>
