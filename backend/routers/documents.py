@@ -2,7 +2,7 @@
 import logging
 from pathlib import Path
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends, Request
 from fastapi.responses import FileResponse
 
 from models.legal_state import NDALegalState
@@ -11,13 +11,17 @@ from models.responses import DocumentGenerateResponse
 from services.document_generator import generate_nda
 from services.file_exporter import generate_docx, generate_pdf
 from utils.logger import log_event
+from utils.auth import get_current_user
 
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/documents", tags=["documents"])
 
 
 @router.post("/generate", response_model=DocumentGenerateResponse)
-async def generate_document(request: NDAGenerateRequest):
+async def generate_document(
+    request: NDAGenerateRequest,
+    user_id: str = Depends(get_current_user)
+):
     """Generate an NDA document from structured input."""
     # Build the validated legal state from request
     try:
@@ -37,7 +41,7 @@ async def generate_document(request: NDAGenerateRequest):
     await log_event(
         event_type="document_request_received",
         session_id=legal_state.session_id,
-        data={"document_type": "nda", "request": request.model_dump()},
+        data={"document_type": "nda", "request": request.model_dump(), "user_id": user_id},
     )
 
     # Generate document text via LLM
@@ -72,6 +76,7 @@ async def generate_document(request: NDAGenerateRequest):
         data={
             "docx_path": docx_path,
             "pdf_path": pdf_path,
+            "user_id": user_id,
         },
     )
 
@@ -108,3 +113,57 @@ async def download_file(filename: str):
         filename=filename,
         media_type=media_type,
     )
+
+@router.get("/history")
+async def get_document_history(
+    request: Request,
+    user_id: str = Depends(get_current_user)
+):
+    """Fetch the user's generated documents history from audit logs."""
+    db = request.app.state.db
+    if db is None:
+        return []
+
+    # Find all successful generation events for this user
+    cursor = db["audit_logs"].find(
+        {
+            "event_type": "document_files_generated",
+            "data.user_id": user_id
+        }
+    ).sort("timestamp", -1).limit(50)
+
+    history = []
+    async for doc in cursor:
+        session_id = doc.get("session_id")
+        timestamp = doc.get("timestamp")
+        data = doc.get("data", {})
+        docx_path = data.get("docx_path", "")
+        pdf_path = data.get("pdf_path", "")
+        
+        # Get the original request to find parties and type
+        req_doc = await db["audit_logs"].find_one({
+            "event_type": "document_request_received",
+            "session_id": session_id
+        })
+        
+        doc_type = "NDA"
+        parties = "Unknown"
+        if req_doc and "data" in req_doc and "request" in req_doc["data"]:
+            req_data = req_doc["data"]["request"]
+            doc_type = req_doc["data"].get("document_type", "nda").upper()
+            parties = f"{req_data.get('disclosing_party', 'A')} & {req_data.get('receiving_party', 'B')}"
+
+        session_short = session_id[:8] if session_id else ""
+        history.append({
+            "session_id": session_id,
+            "filename": f"{doc_type}_V1_{session_short}.PDF",
+            "document_type": doc_type,
+            "parties": parties,
+            "date": timestamp,
+            "status": "COMPLETED",
+            "risk": "LOW", # placeholder for future risk analysis
+            "docx_url": f"/api/documents/download/{doc_type.lower()}_{session_short}.docx",
+            "pdf_url": f"/api/documents/download/{doc_type.lower()}_{session_short}.pdf",
+        })
+
+    return history
