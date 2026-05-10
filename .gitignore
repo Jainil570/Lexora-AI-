@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.whl
+*.spec
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+*.env
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Database outputs
+backend/outputs/*.pdf
+backend/outputs/*.docx
+
+# PyMuPDF
+*.fitz
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Next.js
+lexora-frontend/.next/
+lexora-frontend/out/
+lexora-frontend/node_modules/
+lexora-frontend/.turbo/
+lexora-frontend/.vercel/
+lexora-frontend/coverage/
+
+# Dependency dirs
+node_modules/
+
+# Test output
+.pytest_cache/
+htmlcov/
+.coverage
+coverage.xml

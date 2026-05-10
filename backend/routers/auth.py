@@ -9,12 +9,9 @@ from motor.motor_asyncio import AsyncIOMotorDatabase
 from models.user import UserCreate, UserLogin, UserResponse, TokenResponse
 from services.user_service import create_user, get_user_by_email, get_user_by_id
 from utils.auth import verify_password, create_access_token, get_current_user
+from utils.dependencies import get_db
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
-
-def get_db(request: Request) -> AsyncIOMotorDatabase:
-    """Dependency to get MongoDB database instance."""
-    return request.app.state.db
 
 @router.post("/register", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
 async def register(user: UserCreate, db: AsyncIOMotorDatabase = Depends(get_db)):
