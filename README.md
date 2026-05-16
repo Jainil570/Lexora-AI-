@@ -136,7 +136,6 @@ The system is agentic because it **decides** what to ask, which workflow to foll
 | Vector DB | ChromaDB (local persistent) |
 | Embeddings | BAAI/bge-small-en-v1.5 (free, local) |
 | LLM Runtime | Ollama (Qwen2.5 / Gemma / Llama) |
-| LLM Fallback | OpenAI GPT-4o (optional, one env var) |
 
 ### Deployment
 | Layer | Technology |
@@ -171,7 +170,7 @@ lexora/
 │   │   ├── intake.py
 │   │   └── health.py
 │   ├── services/
-│   │   ├── llm_client.py         # Provider abstraction (Ollama / OpenAI)
+│   │   ├── llm_client.py         # Provider abstraction (Ollama)
 │   │   ├── document_generator.py
 │   │   ├── intake_agent.py       # Adaptive questioning engine
 │   │   ├── risk_analyzer.py      # Risk scoring + Red Flag detection
